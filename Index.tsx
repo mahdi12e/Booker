@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { useAuth } from '../auth';
+import { useAuth } from './client-auth';
 
 const Landing = lazy(() => import('./Landing'));
 const Home = lazy(() => import('./Home'));
