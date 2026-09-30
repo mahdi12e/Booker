@@ -4,7 +4,7 @@ import { HttpError, readJson } from './http';
 import { rateLimit } from './ratelimit';
 import { getSelf, loadUser, requireUser } from './session';
 import { parseBio, parseName, parseUsername } from './validate';
-import { uniqueViolation } from './auth';
+import { uniqueViolation } from './api-auth';
 
 const profile = new Hono<AppEnv>();
 
