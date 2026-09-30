@@ -1,15 +1,15 @@
 import { lazy, Suspense, useEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
-import Nav from './components/Nav';
-import NotFound from './components/NotFound';
+import Nav from './Nav';
+import NotFound from './NotFound';
 
-const Index = lazy(() => import('./pages/Index'));
-const Auth = lazy(() => import('./pages/Auth'));
-const Discover = lazy(() => import('./pages/Discover'));
-const Write = lazy(() => import('./pages/Write'));
-const Settings = lazy(() => import('./pages/Settings'));
-const PostPage = lazy(() => import('./pages/Post'));
-const ProfilePage = lazy(() => import('./pages/Profile'));
+const Index = lazy(() => import('./Index'));
+const Auth = lazy(() => import('./Auth'));
+const Discover = lazy(() => import('./Discover'));
+const Write = lazy(() => import('./Write'));
+const Settings = lazy(() => import('./Settings'));
+const PostPage = lazy(() => import('./Post'));
+const ProfilePage = lazy(() => import('./Profile'));
 
 export default function App() {
   const { pathname } = useLocation();
