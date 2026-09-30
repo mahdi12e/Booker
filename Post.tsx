@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { api, ApiError, errorMessage } from '../api';
-import Avatar from '../components/Avatar';
-import NotFound from '../components/NotFound';
-import type { Post } from '../types';
-import { TYPE_NAME, formatDate } from '../utils';
+import { api, ApiError, errorMessage } from './api';
+import Avatar from './components/Avatar';
+import NotFound from './components/NotFound';
+import type { Post } from './types';
+import { TYPE_NAME, formatDate } from './utils';
 
 export default function PostPage() {
   const { id } = useParams();
