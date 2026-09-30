@@ -1,15 +1,15 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { api, ApiError, errorMessage } from '../api';
-import { useAuth } from '../auth';
-import Avatar from '../components/Avatar';
-import Composer from '../components/Composer';
-import EditProfile from '../components/EditProfile';
-import PostCard from '../components/PostCard';
-import Wheel from '../components/Wheel';
-import NotFound from '../components/NotFound';
-import type { Post, PostSummary, PostType, ProfileData } from '../types';
-import { TYPE_NAME, TYPE_PLURAL, formatDate, toSummary } from '../utils';
+import { api, ApiError, errorMessage } from './api';
+import { useAuth } from './client-auth';
+import Avatar from './components/Avatar';
+import Composer from './components/Composer';
+import EditProfile from './components/EditProfile';
+import PostCard from './components/PostCard';
+import Wheel from './components/Wheel';
+import NotFound from './components/NotFound';
+import type { Post, PostSummary, PostType, ProfileData } from './types';
+import { TYPE_NAME, TYPE_PLURAL, formatDate, toSummary } from './utils';
 
 export default function ProfilePage() {
   const { handle, username: routeUsername } = useParams();
