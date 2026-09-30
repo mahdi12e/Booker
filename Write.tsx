@@ -1,99 +1,51 @@
 import { useEffect, useState } from 'react';
-import { Link, Navigate, useNavigate, useSearchParams } from 'react-router-dom';
-import { api, errorMessage } from '../api';
-import { useAuth } from '../auth';
-import Composer from '../components/Composer';
-import Wheel from '../components/Wheel';
-import type { Post, PostType } from '../types';
-import { TYPE_NAME } from '../utils';
+import { Navigate, useNavigate, useSearchParams } from 'react-router-dom';
+import { api, ApiError } from './api';
+import { useAuth } from './client-auth';
+import Composer from './Composer';
+import type { Post, PostType } from './types';
 
 export default function Write() {
   const { user, loading } = useAuth();
-  const [sp] = useSearchParams();
   const nav = useNavigate();
-  const editId = sp.get('edit');
-
+  const [params] = useSearchParams();
+  const editId = params.get('edit');
   const [type, setType] = useState<PostType>('poem');
   const [post, setPost] = useState<Post | null>(null);
-  const [status, setStatus] = useState<'idle' | 'loading' | 'error'>('idle');
-  const [error, setError] = useState('');
-  const [toast, setToast] = useState('');
+  const [state, setState] = useState<'loading' | 'ready' | 'missing' | 'error'>('loading');
 
   useEffect(() => {
-    document.title = `${editId ? 'Edit' : 'Write'} · Marginalia`;
+    if (!editId) { setState('ready'); return; }
+    let dead = false;
+    api.get<{ post: Post }>(`/api/posts/${encodeURIComponent(editId)}`)
+      .then(({ post: p }) => { if (!dead) { setPost(p); setType(p.type); setState('ready'); } })
+      .catch((e) => { if (!dead) setState(e instanceof ApiError && e.status === 404 ? 'missing' : 'error'); });
+    return () => { dead = true; };
   }, [editId]);
 
-  useEffect(() => {
-    if (!editId || !user) {
-      setPost(null);
-      return;
-    }
-    let dead = false;
-    setStatus('loading');
-    api
-      .get<{ post: Post }>(`/api/posts/${encodeURIComponent(editId)}`)
-      .then((d) => {
-        if (dead) return;
-        if (!d.post.is_owner) {
-          setError('You can only edit your own writing.');
-          setStatus('error');
-          return;
-        }
-        setPost(d.post);
-        setType(d.post.type);
-        setStatus('idle');
-      })
-      .catch((e) => {
-        if (dead) return;
-        setError(errorMessage(e));
-        setStatus('error');
-      });
-    return () => {
-      dead = true;
-    };
-  }, [editId, user]);
-
-  useEffect(() => {
-    if (!toast) return;
-    const t = window.setTimeout(() => setToast(''), 3500);
-    return () => window.clearTimeout(t);
-  }, [toast]);
-
   if (loading) return <div className="page-loading" role="status">Loading…</div>;
-  if (!user) return <Navigate to="/login" replace state={{ from: `/write${editId ? `?edit=${editId}` : ''}` }} />;
-
-  if (editId && status === 'loading') return <div className="page-loading" role="status">Loading your piece…</div>;
-  if (editId && status === 'error') {
-    return (
-      <div className="page page--narrow empty" role="alert">
-        <p>{error}</p>
-        <Link className="btn" to={`/@${user.username}`}>
-          Back to your profile
-        </Link>
-      </div>
-    );
-  }
-
-  const onSaved = (saved: Post, kind: 'published' | 'draft' | 'updated') => {
-    if (kind === 'draft') setToast('Draft saved.');
-    else nav(`/post/${saved.id}`);
-  };
+  if (!user) return <Navigate to="/login" replace state={{ from: editId ? `/write?edit=${editId}` : '/write' }} />;
+  if (state === 'loading') return <div className="page-loading" role="status">Loading editor…</div>;
+  if (state === 'missing') return <div className="page page--narrow empty"><p>That piece could not be found.</p></div>;
+  if (state === 'error') return <div className="page page--narrow empty"><p>We could not load the editor.</p></div>;
 
   return (
-    <div className="page page--write">
+    <div className="page page--reading">
       <header className="page__head">
-        <div>
-          <h1>{post ? `Edit ${TYPE_NAME[post.type].toLowerCase()}` : 'Write'}</h1>
-          <p className="muted">{post ? 'Your changes are autosaved as you type.' : 'Turn the dial to choose what you are writing.'}</p>
-        </div>
+        <h1>{post ? 'Edit your writing' : 'Write'}</h1>
+        {!post && (
+          <div className="filters" role="group" aria-label="Choose type">
+            {(['poem', 'story', 'book_part'] as PostType[]).map((v) => (
+              <button key={v} type="button" className="chip" aria-pressed={type === v} onClick={() => setType(v)}>
+                {v === 'book_part' ? 'Book Part' : v[0].toUpperCase() + v.slice(1)}
+              </button>
+            ))}
+          </div>
+        )}
       </header>
-      {!post && <Wheel value={type} onChange={setType} label="Choose what to write" />}
-      <Composer key={post ? post.id : type} type={type} post={post} onSaved={onSaved} />
-      {toast && (
-        <div className="toast" role="status">
-          {toast}
-        </div>
-      )}
+      <Composer type={type} post={post} onSaved={(p, kind) => {
+        if (kind === 'published' || kind === 'updated') nav(`/post/${p.id}`);
+      }} />
     </div>
   );
 }
