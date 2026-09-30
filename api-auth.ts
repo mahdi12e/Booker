@@ -3,7 +3,7 @@ import type { AppEnv } from './types';
 import { HttpError, readJson } from './http';
 import { DUMMY_HASH, hashPassword, newId, verifyPassword } from './crypto';
 import { rateLimit } from './ratelimit';
-import { verifyTurnstile } from './turnstile';
+import { verifyTurnstile } from './Turnstile';
 import {
   clearSessionCookie,
   createSession,
