@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Feed from './components/Feed';
+import Feed from './Feed';
 import type { PostType } from './types';
 import { TYPE_PLURAL } from './utils';
 
