@@ -1,5 +1,5 @@
 import type { MiddlewareHandler } from 'hono';
-import type { AppEnv } from '../types';
+import type { AppEnv } from './types';
 import { HttpError } from './http';
 
 const SAFE_METHODS = new Set(['GET', 'HEAD', 'OPTIONS']);
