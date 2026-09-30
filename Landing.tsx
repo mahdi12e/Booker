@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { api, errorMessage } from '../api';
-import Wheel from '../components/Wheel';
-import type { PostType } from '../types';
+import { api, errorMessage } from './api';
+import Wheel from './components/Wheel';
+import type { PostType } from './types';
 
 const SAMPLES: Record<PostType, { title: string; kicker?: string; body: string }> = {
   poem: {
