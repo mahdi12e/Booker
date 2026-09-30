@@ -3,7 +3,6 @@ import type { Context } from 'hono';
 export interface Env {
   DB: D1Database;
   KV: KVNamespace;
-  AVATARS: R2Bucket;
   APP_URL: string;
   GOOGLE_CLIENT_ID?: string;
   GOOGLE_CLIENT_SECRET?: string;
