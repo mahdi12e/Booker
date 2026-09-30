@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import type { PostSummary } from '../types';
-import { TYPE_NAME, formatDate } from '../utils';
+import type { PostSummary } from './types';
+import { TYPE_NAME, formatDate } from './utils';
 import Avatar from './Avatar';
 
 interface Props {
