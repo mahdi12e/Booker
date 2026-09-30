@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
-import { api, ApiError, errorMessage } from '../api';
-import { useAuth } from '../auth';
-import Field from '../components/Field';
+import { api, ApiError, errorMessage } from './api';
+import { useAuth } from './client-auth';
+import Field from './components/Field';
 
 export default function Settings() {
   const { user, loading, setUser, logout } = useAuth();
