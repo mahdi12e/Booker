@@ -15,16 +15,10 @@
     {
       "binding": "DB",
       "database_name": "marginalia-db",
-      "database_id": "PASTE-D1-DATABASE-ID",
+      "database_id": "bb611545-b614-479f-aed7-03da28610c1c",
       "migrations_dir": "migrations"
     }
   ],
   "kv_namespaces": [
-    { "binding": "KV", "id": "PASTE-KV-NAMESPACE-ID" }
+    { "binding": "KV", "id": "eb011872c1c14e08a056c8a8e45a3f8d" }
   ],
-  "r2_buckets": [
-    { "binding": "AVATARS", "bucket_name": "marginalia-avatars" }
-  ],
-  "triggers": { "crons": ["0 3 * * *"] },
-  "observability": { "enabled": true }
-}
