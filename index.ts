@@ -1,8 +1,8 @@
 import { Hono } from 'hono';
 import type { ContentfulStatusCode } from 'hono/utils/http-status';
 import type { AppEnv, Env } from './types';
-import { HttpError } from './lib/http';
-import { csrf, securityHeaders } from './lib/middleware';
+import { HttpError } from './http';
+import { csrf, securityHeaders } from './middleware';
 import auth from './auth';
 import google from './google';
 import profile from './profile';
