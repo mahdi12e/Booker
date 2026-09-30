@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
-import { api, ApiError, errorMessage } from '../api';
-import { useAuth } from '../auth';
-import type { SelfUser } from '../types';
-import { USERNAME_RE } from '../utils';
+import { api, ApiError, errorMessage } from './api';
+import { useAuth } from './client-auth';
+import type { SelfUser } from './types';
+import { USERNAME_RE } from './utils';
 import Avatar from './Avatar';
 import Field from './Field';
 
