@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useId, useMemo, useReducer, useRef, useState } from 'react';
-import { api, ApiError } from '../api';
-import type { Post, PostType, Visibility } from '../types';
-import { TYPE_NAME, countWords } from '../utils';
+import { api, ApiError } from './api';
+import type { Post, PostType, Visibility } from './types';
+import { TYPE_NAME, countWords } from './utils';
 
 interface Fields {
   title: string;
