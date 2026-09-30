@@ -9,7 +9,7 @@
     "run_worker_first": ["/api/*"]
   },
   "vars": {
-    "APP_URL": "https://marginalia.YOUR-SUBDOMAIN.workers.dev"
+    "APP_URL": "https://booker1.m2jaf-bis.workers.dev"
   },
   "d1_databases": [
     {
