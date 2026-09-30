@@ -20,5 +20,9 @@
     }
   ],
   "kv_namespaces": [
-    { "binding": "KV", "id": "eb011872c1c14e08a056c8a8e45a3f8d" }
-  ],
+    {
+      "binding": "KV",
+      "id": "eb011872c1c14e08a056c8a8e45a3f8d"
+    }
+  ]
+}
