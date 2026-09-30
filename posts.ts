@@ -1,10 +1,10 @@
 import { Hono } from 'hono';
-import type { AppEnv, Ctx, Env } from '../types';
-import { HttpError, readJson } from '../lib/http';
-import { newId } from '../lib/crypto';
-import { rateLimit } from '../lib/ratelimit';
-import { loadUser, requireUser } from '../lib/session';
-import { makeExcerpt } from '../lib/excerpt';
+import type { AppEnv, Ctx, Env } from './types';
+import { HttpError, readJson } from './http';
+import { newId } from './crypto';
+import { rateLimit } from './ratelimit';
+import { loadUser, requireUser } from './session';
+import { makeExcerpt } from './excerpt';
 import {
   MAX_POST_BODY,
   isValidId,
@@ -15,7 +15,7 @@ import {
   validatePost,
   type PostType,
   type Visibility
-} from '../lib/validate';
+} from './validate';
 
 const posts = new Hono<AppEnv>();
 
