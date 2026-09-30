@@ -3,9 +3,9 @@ import type { ContentfulStatusCode } from 'hono/utils/http-status';
 import type { AppEnv, Env } from './types';
 import { HttpError } from './http';
 import { csrf, securityHeaders } from './middleware';
-import auth from './auth';
+import auth from './api-auth';
 import google from './google';
-import profile from './profile';
+import profile from './api-profile';
 import posts from './posts';
 import drafts from './drafts';
 
