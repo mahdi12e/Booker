@@ -1,5 +1,5 @@
 import { deleteCookie, getCookie, setCookie } from 'hono/cookie';
-import type { Ctx, Env, SessionUser } from '../types';
+import type { Ctx, Env, SessionUser } from './types';
 import { HttpError, isSecure } from './http';
 import { randomToken, sha256Hex } from './crypto';
 
