@@ -1,7 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "marginalia",
-  "main": "worker/index.ts",
+  "main": "index.ts",
   "compatibility_date": "2025-09-01",
   "assets": {
     "directory": "./dist",
