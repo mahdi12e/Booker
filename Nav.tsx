@@ -1,5 +1,5 @@
 import { Link, NavLink } from 'react-router-dom';
-import { useAuth } from '../auth';
+import { useAuth } from './client-auth';
 import Logo from './Logo';
 
 const ICONS: Record<string, string> = {
