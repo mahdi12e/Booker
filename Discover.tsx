@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import Feed from '../components/Feed';
-import type { PostType } from '../types';
-import { TYPE_PLURAL } from '../utils';
+import Feed from './components/Feed';
+import type { PostType } from './types';
+import { TYPE_PLURAL } from './utils';
 
 const FILTERS: { value: PostType | null; label: string }[] = [
   { value: null, label: 'All' },
