@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from './client-auth';
-import Feed from './components/Feed';
+import Feed from './Feed';
 
 export default function Home() {
   const { user } = useAuth();
