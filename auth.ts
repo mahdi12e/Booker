@@ -1,9 +1,9 @@
 import { Hono } from 'hono';
-import type { AppEnv } from '../types';
-import { HttpError, readJson } from '../lib/http';
-import { DUMMY_HASH, hashPassword, newId, verifyPassword } from '../lib/crypto';
-import { rateLimit } from '../lib/ratelimit';
-import { verifyTurnstile } from '../lib/turnstile';
+import type { AppEnv } from './types';
+import { HttpError, readJson } from './http';
+import { DUMMY_HASH, hashPassword, newId, verifyPassword } from './crypto';
+import { rateLimit } from './ratelimit';
+import { verifyTurnstile } from './turnstile';
 import {
   clearSessionCookie,
   createSession,
@@ -11,8 +11,8 @@ import {
   getSelf,
   loadUser,
   requireUser
-} from '../lib/session';
-import { parseEmail, parseName, parsePassword, parseUsername, usernameProblem } from '../lib/validate';
+} from './session';
+import { parseEmail, parseName, parsePassword, parseUsername, usernameProblem } from './validate';
 
 const auth = new Hono<AppEnv>();
 
