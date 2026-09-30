@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { api, errorMessage } from '../api';
-import type { PostSummary, PostType } from '../types';
+import { api, errorMessage } from './api';
+import type { PostSummary, PostType } from './types';
 import PostCard from './PostCard';
 
 export default function Feed({ type }: { type: PostType | null }) {
