@@ -2,7 +2,9 @@
   "compilerOptions": {
     "target": "ES2022",
     "lib": [
-      "ES2022"
+      "ES2022",
+      "DOM",
+      "DOM.Iterable"
     ],
     "module": "ESNext",
     "moduleResolution": "Bundler",
@@ -11,8 +13,10 @@
     "skipLibCheck": true,
     "isolatedModules": true,
     "types": [
-      "@cloudflare/workers-types/2023-07-01"
-    ]
+      "@cloudflare/workers-types/2023-07-01",
+      "vite/client"
+    ],
+    "jsx": "react-jsx"
   },
   "include": [
     "./**/*.ts",
