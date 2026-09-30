@@ -3,11 +3,11 @@ import type { ContentfulStatusCode } from 'hono/utils/http-status';
 import type { AppEnv, Env } from './types';
 import { HttpError } from './lib/http';
 import { csrf, securityHeaders } from './lib/middleware';
-import auth from './routes/auth';
-import google from './routes/google';
-import profile from './routes/profile';
-import posts from './routes/posts';
-import drafts from './routes/drafts';
+import auth from './auth';
+import google from './google';
+import profile from './profile';
+import posts from './posts';
+import drafts from './drafts';
 
 const app = new Hono<AppEnv>();
 
