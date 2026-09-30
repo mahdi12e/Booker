@@ -1,9 +1,9 @@
 import { Hono } from 'hono';
-import type { AppEnv } from '../types';
-import { HttpError, readJson } from '../lib/http';
-import { newId } from '../lib/crypto';
-import { rateLimit } from '../lib/ratelimit';
-import { requireUser } from '../lib/session';
+import type { AppEnv } from './types';
+import { HttpError, readJson } from './http';
+import { newId } from './crypto';
+import { rateLimit } from './ratelimit';
+import { requireUser } from './session';
 import {
   CONTENT_MAX,
   MAX_POST_BODY,
@@ -12,7 +12,7 @@ import {
   cleanText,
   parseDraftKey,
   type PostType
-} from '../lib/validate';
+} from './validate';
 
 const drafts = new Hono<AppEnv>();
 const MAX_DRAFT_ROWS = 300;
