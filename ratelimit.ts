@@ -1,4 +1,4 @@
-import type { Ctx } from '../types';
+import type { Ctx } from './types';
 import { HttpError } from './http';
 
 /**
