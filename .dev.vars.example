@@ -1,0 +1,6 @@
+# Copy to .dev.vars for local development (never commit .dev.vars)
+APP_URL=http://localhost:5173
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+# Cloudflare's always-pass Turnstile test secret. Remove this line to disable the check locally.
+TURNSTILE_SECRET=1x0000000000000000000000000000000AA
