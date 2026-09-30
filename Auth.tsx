@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate, useSearchParams } from 'react-router-dom';
-import { api, ApiError, errorMessage } from '../api';
-import { useAuth } from '../auth';
-import Field from '../components/Field';
-import Logo from '../components/Logo';
-import Turnstile, { turnstileEnabled } from '../components/Turnstile';
-import type { SelfUser } from '../types';
-import { EMAIL_RE, USERNAME_RE } from '../utils';
+import { api, ApiError, errorMessage } from './api';
+import { useAuth } from './client-auth';
+import Field from './components/Field';
+import Logo from './components/Logo';
+import Turnstile, { turnstileEnabled } from './components/Turnstile';
+import type { SelfUser } from './types';
+import { EMAIL_RE, USERNAME_RE } from './utils';
 
 const GOOGLE_ERRORS: Record<string, string> = {
   google_denied: 'Google sign-in was cancelled.',
