@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
-import type { PostType } from '../types';
+import type { PostType } from './types';
 
 /** Display order around the dial. POEM sits at the top when it is the default. */
 export const WHEEL_ORDER: PostType[] = ['story', 'poem', 'book_part'];
