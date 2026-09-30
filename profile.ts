@@ -1,9 +1,9 @@
 import { Hono } from 'hono';
-import type { AppEnv } from '../types';
-import { HttpError, readJson } from '../lib/http';
-import { rateLimit } from '../lib/ratelimit';
-import { getSelf, loadUser, requireUser } from '../lib/session';
-import { parseBio, parseName, parseUsername } from '../lib/validate';
+import type { AppEnv } from './types';
+import { HttpError, readJson } from './http';
+import { rateLimit } from './ratelimit';
+import { getSelf, loadUser, requireUser } from './session';
+import { parseBio, parseName, parseUsername } from './validate';
 import { uniqueViolation } from './auth';
 
 const profile = new Hono<AppEnv>();
