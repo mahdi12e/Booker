@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { api, ApiError, errorMessage } from './api';
-import Avatar from './components/Avatar';
-import NotFound from './components/NotFound';
+import Avatar from './Avatar';
+import NotFound from './NotFound';
 import type { Post } from './types';
 import { TYPE_NAME, formatDate } from './utils';
 
