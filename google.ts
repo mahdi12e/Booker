@@ -1,11 +1,11 @@
 import { Hono } from 'hono';
 import { deleteCookie, getCookie, setCookie } from 'hono/cookie';
-import type { AppEnv } from '../types';
-import { HttpError, isSecure } from '../lib/http';
-import { b64url, fromB64url, newId, randomBytes, randomToken, sha256Bytes } from '../lib/crypto';
-import { rateLimit } from '../lib/ratelimit';
-import { createSession } from '../lib/session';
-import { RESERVED_USERNAMES, cleanText } from '../lib/validate';
+import type { AppEnv } from './types';
+import { HttpError, isSecure } from './http';
+import { b64url, fromB64url, newId, randomBytes, randomToken, sha256Bytes } from './crypto';
+import { rateLimit } from './ratelimit';
+import { createSession } from './session';
+import { RESERVED_USERNAMES, cleanText } from './validate';
 
 const google = new Hono<AppEnv>();
 
